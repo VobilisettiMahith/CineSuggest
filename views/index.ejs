@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= reqMov.title %>
+    </title>
+    <link rel="stylesheet" href="/style2.css">
+</head>
+
+<body>
+    <h2>
+        <%= reqMov.title %>
+    </h2>
+    <div class="Initialcontent">
+        <p>
+            <%=reqMov.year %>
+        </p>
+        <ul>
+            <li>
+                <%=reqMov.certificate %>
+            </li>
+            <li>
+                <%=reqMov.duration %>
+            </li>
+        </ul>
+    </div>
+
+    <div id="Media">
+        <img src="<%= reqMov.poster %>" alt="MoviePoster">
+        <iframe src="<%= reqMov.trailer %>" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+    </div>
+    <div id="Moviecontent">
+        <section>
+            <div id="CategorySection">
+                <% for(let i=0; i<reqMov.genre.length; i++) { %>
+                    <div>
+                        <p>
+                            <%=reqMov.genre[i]%>
+                        </p>
+                    </div>
+                    <% } %>
+            </div>
+        </section>
+        <p>
+            <%= reqMov.description %>
+        </p>
+
+        <div id="MovieDetails">
+            <p class="Decoration">Director</p>
+            <p>
+                <%=reqMov.director %>
+            </p>
+        </div>
+
+        <div class="Initialcontent">
+            <p class="Decoration">Stars</p>
+            <ul>
+                <% for(let i=0; i<reqMov.cast.length; i++) { %>
+                    <li>
+                        <%= reqMov.cast[i] %>
+                    </li>
+                    <% } %>
+
+            </ul>
+
+        </div>
+
+        <div class="Initialcontent Details">
+            <p class="Decoration">Writers</p>
+            <ul>
+                <% for(let i=0; i<reqMov.writers.length; i++) { %>
+                    <li>
+                        <%= reqMov.writers[i] %>
+                    </li>
+                    <% } %>
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
