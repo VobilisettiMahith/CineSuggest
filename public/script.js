@@ -18,14 +18,12 @@ searchInput.addEventListener("keydown", (event) => {
 })
 
 let Genres = document.querySelectorAll("#CategorySection div");
-console.dir(Genres);
 for (let genre of Genres) {
     if (genre.innerText == "All") {
         continue;
     }
     else {
         genre.addEventListener("click", () => {
-            console.log(genre.innerText);
             window.location.href = `http://localhost:8080/landingHomePage/genres/${genre.innerText}`;
         })
     }
