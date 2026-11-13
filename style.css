@@ -197,7 +197,7 @@ ul{
 
 #Popularsection{
     background-color: rgb(52, 60, 67);
-    height: 360px;
+    /* height: 360px; */
     /* width:fit-content; */
     margin: 10px 0px; 
     border-radius: 15px;
