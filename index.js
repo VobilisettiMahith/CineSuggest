@@ -2,7 +2,7 @@ const express = require("express")
 const app = express();
 const port = 8080;
 const path = require("path");
-const movies = require("./movies");
+let movies = require("./movies");
 
 app.use((req, res, next) => {
     res.setHeader(
@@ -35,9 +35,26 @@ app.get("/movies/:moviename", Handlerequest)
 // Search bar 
 app.get("/search/:moviename", Handlerequest)
 
-// Render the title page dynamically
-app.get("/LandingHomePage",(req,res)=>{
+// Render the home page dynamically
+app.get("/landingHomePage",(req,res)=>{
     res.render("landingpage.ejs",{movies});
+})
+
+// Render the home page according to given genre
+app.get("/landingHomePage/genres/:genre",(req,res)=>{
+    const reqGenre = req.params.genre;
+    let movies_copy=movies;
+    movies=[];
+    for(let i=0;i<movies_copy.length;i++){
+        let currMov=movies_copy[i];
+        for(let j=0;j<currMov.genre.length;j++){
+            if(currMov.genre[j].toLowerCase()==reqGenre.toLowerCase()){
+                movies.push(currMov);
+            }
+        }
+    }
+    res.render("landingpage.ejs",{movies});
+    movies=movies_copy;
 })
 
 app.listen(port, () => {

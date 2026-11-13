@@ -16,3 +16,11 @@ searchInput.addEventListener("keydown",(event)=>{
         window.location.href = `http://localhost:8080/search/${moviename}`;
     }
 })
+
+let Genres=document.querySelectorAll("#CategorySection div");
+for(let genre of Genres){
+    genre.addEventListener("click",()=>{
+        console.log(genre.innerText);
+        window.location.href=`http://localhost:8080/landingHomePage/genres/${genre.innerText}`;
+    })
+}
