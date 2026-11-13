@@ -29,9 +29,16 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// Movie page
 app.get("/movies/:moviename", Handlerequest)
 
+// Search bar 
 app.get("/search/:moviename", Handlerequest)
+
+// Render the title page dynamically
+app.get("/LandingHomePage",(req,res)=>{
+    res.render("landingpage.ejs",{movies});
+})
 
 app.listen(port, () => {
     console.log(`Listening to ${port}`);
@@ -380,7 +387,5 @@ app.listen(port, () => {
 
 
 
-// app.get("/",(req,res)=>{
-//     res.render("index");
-// })
+
 
