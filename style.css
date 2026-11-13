@@ -162,11 +162,10 @@ ul{
 
 #CategorySection{
     display:flex;
-    background-color: black;
-    height: auto;
     align-items: flex-start;
     width: 1100px;
     justify-content:space-evenly;
+    background: transparent;
 
 }
 

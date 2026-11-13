@@ -7,3 +7,12 @@ for(let i=0;i<movies.length;i++){
         window.location.href=`http://localhost:8080/movies/${title.innerText}`;
     })
 }
+
+let searchInput=document.querySelector("#SearchBox");
+searchInput.addEventListener("keydown",(event)=>{
+    if(event.code=="Enter"){
+        let moviename=searchInput.children[1].value;
+        console.log(moviename);
+        window.location.href = `http://localhost:8080/search/${moviename}`;
+    }
+})
