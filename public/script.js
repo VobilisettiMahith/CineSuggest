@@ -23,8 +23,15 @@ for (let genre of Genres) {
         continue;
     }
     else {
+        
         genre.addEventListener("click", () => {
+            console.log(genre.innerText);
             window.location.href = `http://localhost:8080/landingHomePage/genres/${genre.innerText}`;
         })
     }
 }
+
+let NavButtons=document.querySelectorAll("#NavMenu p");
+NavButtons[0].addEventListener("click",()=>{
+    window.location.href = `http://localhost:8080/landingHomePage`;
+})
