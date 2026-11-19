@@ -35,3 +35,7 @@ let NavButtons=document.querySelectorAll("#NavMenu p");
 NavButtons[0].addEventListener("click",()=>{
     window.location.href = `http://localhost:8080/landingHomePage`;
 })
+
+NavButtons[2].addEventListener("click",()=>{
+    window.location.href = `http://localhost:8080/landingHomePage/watchlist`;
+})

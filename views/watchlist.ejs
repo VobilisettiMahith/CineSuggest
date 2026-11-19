@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchlist</title>
+    <link rel="stylesheet" href="/watchlistStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <% for(let i=0; i<watchlist.length; i++) { %>
+        <div class="MainWrapper">
+            <div id="MainDisplaySection">
+                <img src="<%= watchlist[i].poster %>"
+                    alt="" id="Image">
+                <div id="ImageContent">
+                    <h2 class="google-sans-title"><%= watchlist[i].title %></h2>
+                    <ul>
+                        <p><%= watchlist[i].year %></p>
+                        <li> <%= watchlist[i].genre[0] %></li>
+                        <li> <%= watchlist[i].duration %></li>
+                    </ul>
+                    <p class="inter-description"><%= watchlist[i].description %></p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    <% } %>
+            <!-- <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="MainWrapper">
+                <div id="MainDisplaySection">
+                    <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40"
+                        alt="">
+                    <div id="ImageContent">
+                        <h2 class="google-sans-title">Interstellar</h2>
+                        <ul>
+                            <p>2014</p>
+                            <li> Sci-Fi</li>
+                            <li> 2h 49m</li>
+                        </ul>
+                        <p class="inter-description">A team of explorers travel through a wormhole in space in an
+                            attempt to
+                            ensure
+                            humanity's survival</p>
+                    </div>
+                </div>
+                <hr>
+            </div> -->
+
+</body>
+
+</html>

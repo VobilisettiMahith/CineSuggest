@@ -2,7 +2,8 @@ const express = require("express")
 const app = express();
 const port = 8080;
 const path = require("path");
-let movies = require("./movies");
+let { movies,watchlist } = require("./Data");
+
 
 app.use((req, res, next) => {
     res.setHeader(
@@ -57,9 +58,16 @@ app.get("/landingHomePage/genres/:genre",(req,res)=>{
     movies=movies_copy;
 })
 
+// Display the watchlist Page
+app.get("/landingHomePage/watchlist",(req,res)=>{
+    res.render("watchlist.ejs",{watchlist});
+})
+
 app.listen(port, () => {
     console.log(`Listening to ${port}`);
 })
+
+
 
 
 
