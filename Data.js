@@ -1,5 +1,5 @@
 // Acts like a sample database
-const movies = [
+let movies = [
 
     {
         id: 101,
@@ -792,112 +792,463 @@ const movies = [
     }
 ]
 
-const watchlist = [
+// Custom watchlist
+let watchlist=[
+    {
+        id: 101,
+        title: "The Shawshank Redemption",
+        poster: "https://image.tmdb.org/t/p/w1280/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg",
+        description: "Wrongfully imprisoned for murder, banker Andy Dufresne forms a deep bond with fellow inmate Red while quietly plotting an extraordinary escape over two decades.",
+        year: 1994,
+        genre: ["Drama"],
+        duration: "2h 22m"
+    },
+    {
+        id: 102,
+        title: "The Dark Knight",
+        poster: "https://image.tmdb.org/t/p/w1280/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg",
+        description: "Batman joins forces with Jim Gordon and Harvey Dent to dismantle Gotham's crime syndicates, only to face their deadliest threat yet in the anarchic Joker.",
+        year: 2008,
+        genre: ["Action", "Crime", "Drama"],
+        duration: "2h 32m"
+    },
+    {
+        id: 103,
+        title: "Inception",
+        poster: "https://m.media-amazon.com/images/S/pv-target-images/d3a92aaee0263f8df4171a73e90a0245484d0591feff579b6f605e25f7279d16.jpg",
+        description: "A skilled thief who steals secrets from the subconscious is offered a chance to erase his criminal past by planting an original idea inside a target's mind.",
+        year: 2010,
+        genre: ["Action", "Sci-Fi", "Thriller"],
+        duration: "2h 28m"
+    },
     {
         id: 104,
         title: "Interstellar",
+        poster: "https://image.tmdb.org/t/p/w1280/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+        description: "As Earth becomes uninhabitable, a former NASA pilot leaves his children behind to lead a daring mission through a wormhole in search of a new home for humanity.",
         year: 2014,
-        rating: 8.7,
         genre: ["Sci-Fi", "Adventure", "Drama"],
-        duration: "2h 49m",
-        certificate: "PG-13",
-        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVl0wva00_LSM6gOvyup00EAZuZLxhh3i2tVvj2S05Uw&s=10",
-        backdrop: "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/11/5/1415201794019/Matthew-McConaughey-in-In-014.jpg?width=700&quality=85&auto=format&fit=max&s=7ca85dcd8787f3c9ff63fb2213085f40",
-        description: "A team of astronauts travels through a wormhole in search of a new home for humanity as Earth faces environmental collapse.",
-        director: "Christopher Nolan",
-        writers: ["Jonathan Nolan", "Christopher Nolan"],
-        cast: ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
-        trailer: "https://www.youtube.com/embed/zSWdZVtXT7E?si=3iA59Vl3JimY1REB"
+        duration: "2h 49m"
     },
+    {
+        id: 105,
+        title: "FightClub",
+        poster: "https://image.tmdb.org/t/p/w1280/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
+        description: "An insomniac office worker and a devil-may-care soap maker form an underground fight club that spirals into a dangerous anti-capitalist movement.",
+        year: 1999,
+        genre: ["Drama", "Thriller"],
+        duration: "2h 19m"
+    },
+    {
+        id: 106,
+        title: "Parasite",
+        poster: "https://image.tmdb.org/t/p/w1280/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
+        description: "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+        year: 2019,
+        genre: ["Drama", "Thriller"],
+        duration: "2h 12m"
+    },
+    {
+        id: 107,
+        title: "Spirited Away",
+        poster: "https://image.tmdb.org/t/p/w1280/mSDsSDwaP3E7dEfUPWy4J0djt4O.jpg",
+        description: "After her parents are turned into pigs by a greedy witch, a ten-year-old girl must work in a magical spirit bathhouse to free them and return to the human world.",
+        year: 2001,
+        genre: ["Animation", "Adventure", "Fantasy", "Horror"],
+        duration: "2h 5m"
+    },
+    {
+        id: 108,
+        title: "The Matrix",
+        poster: "https://image.tmdb.org/t/p/w1280/ncEsesgOJDNrTUED89hYbA117wo.jpg",
+        description: "A computer hacker learns from mysterious rebels about the true nature of his simulated reality and his role in the war against its machine controllers.",
+        year: 1999,
+        genre: ["Action", "Sci-Fi"],
+        duration: "2h 16m"
+    },
+    {
+        id: 109,
+        title: "Avengers Endgame",
+        poster: "https://image.tmdb.org/t/p/w1280/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+        description: "Devastated by Thanos's snap, the remaining Avengers assemble once more to travel through time, reverse the catastrophe, and restore balance to the universe.",
+        year: 2019,
+        genre: ["Action", "Adventure", "SciFi"],
+        duration: "3h 1m"
+    },
+    {
+        id: 110,
+        title: "Joker",
+        poster: "https://image.tmdb.org/t/p/w1280/n6bUvigpRFqSwmPp1m2YADdbRBc.jpg",
+        description: "Isolated and disregarded by society in 1980s Gotham, failed comedian Arthur Fleck descends into madness and sparks a violent counterculture revolution.",
+        year: 2019,
+        genre: ["Crime", "Drama", "Thriller"],
+        duration: "2h 2m"
+    }
+    
+];
 
+let remainingWatchlist=[
+    {
+        id: 111,
+        title: "The Prestige",
+        poster: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk8BDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAKMA9gMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQADBgIBB//EAD4QAAIBAwMBBgMGAwcEAwEAAAECAwAEEQUSITEGEyJBUWEUcYEjMkKRocEzYrEHFSRS0eHwU2Ny8UNzkjb/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMABP/EACIRAAICAwEAAwADAQAAAAAAAAABAhEDITESIjJBUWFxBP/aAAwDAQACEQMRAD8ATwXEeOEHQUdHcCQRhUYI/Qjgnzqu1gjLZIxnmmEVsiAFAxKDjxcdK4rVnaxbKqbiw4b2PXjNdgoYsZHUeHzriRStw2wFdvXPyoqQZhAcBuQefKugkM7OYSxTA4XIO0H3FZyG3UKTtHWm9n4ZjsZhz0JzVIhAilOMHNQzS4Uw6sr0m33X2dvABNPlgC8laC0CINcOW6YxT6WHoccZ61yzbbKNlekRqXuD/LXxt1Av8f8AdI/Wvqt3drZd5Kb422AeDGWD/OvlKNvu1YndmTJPrzXX/wAy0zny9NtpdhFcWOAArA8FRQ+o6XJaRrcbNhLEBhwGP7Gmugofgyw4Aem2tLu0BMgHxHy9jRm2phi7VGDgdpYLxmGGUKfF86C1N3vriNxCO8C7Tzwac3dnLb2Ue05M7LEV8/Wkkzy6fcGOVWUg9DVIST2aaaVBWnXCRyxpJGZJBwBkgCn/AMQLggtEYyoxjNZ2DUYnvFaO2kZieopmkhuJGeOR1UnpjpVkkc7k2MYFXfwoo6MbaWRQSf8AWYflRUUEp6TP+dEVoY3aE6ZIRnwozUqsLLV7yENbWTPEwLK5YAGmjq0Wl3ALFswvjJzzT3sjf2adm7JZbiFHCNkM4BHiNSk360VVeDP6VNNps6TXMOyQHhCetOrnXJXlRk7uNh5HmqdbFnfXcUsbhwsYxs6Z96F7kBwJBz5GmjTWxJf0DX9wLmZppATJ5kedLbuIzxgIpz1ptci3VCC6KV6ncM1I2RY/4MzKcZZV9elN/gBLJA7Ku7Ocete29kkQcsSu4UaVNw7LbqzunJQA7gPlVtvBLczzWYifv1XcUYYwKWzbLNLj3WDog6OQDXEEDNdSB5AGTjC8EUVosKRXBtJz3b97tZQcGnWoaNp1haS3qB0kXkszk5rXQKMzeSS2oyjEl+N5OcUMJGPi3F+QCTRN5PCluRJufvTlSPKlrTLuBRJCCMge9UTF8j8eKPDDofKpSvRprs2Cd+G7znOcVK3oHgptIZCoyjqy8Hw0dCJoplJ3nI8kpJhfgMtPNuLYL7z/AK0TDJshcZnkJUqDk4Brg8uzvcjm/wBpuTuLbs/I10RhQO+YqCPwD9qpWN9sCZBUIuGc5ZuOtXtv2bmj3HIwQa6aI2M7BATkOvH0riQeF/eq7OQNujKuGOQCy4ri1W6WHu7yRJXUkCRRjcPLOK5c6WmXxMour2WztWW1C9434s/dpVDLM0++71CQuvGN3AoHU90urXBZ+A23HqBVRjCrnfnjyq8PMUhJJybNAk8TSpFFLJNI/OQx/IivNQ0G8SEXWoafDDF175CAyHy3AeRoPQIJjqUK2x8Wck55IFbrUtQsfhGsb+bxzoYygGTg+tU9JieWhLoTAafJkck031MkaKMnjg0s7MxZtZUJDFTjp1ptqHdmyeORtqhABioZK9BhwyN7dCa+0yNAR/id3PsKr7YW/fa1Aw4Ozr60yt7SO7MdxBC6d2/O72/3oTtF4tTgYjHhxWh90Pk+oisIbj4lWCRjB6kU3hJZjuTbz5UNYxpHcDA6n15onuVeQsxJOfWuqzmYfEp4OOtGRhvJaXx2q7VPP5mioraPHQ//AKNEAReAGwwcgsGHHNA2OhyXsFuLJRlvvFjgj3oi/HcWe+PIHIIonSNVl0+wE0SB3UbSpPlUsuiuPgZ/ck+nd3HJOCHYDj9aY6nYwQ3NkIVYb3w2D1GKBTWX1WSNpY1jCtwASaba5KsdxpzFwq9519OOtJsP6ZXVdDvDqs76bdRRxM+cOmWDeeDSa+0290zbc3FwJxnoWIyfWtbJcyQSqs0LHf1dORnzrM9s5ZUSGZEDQnwkHyNTjkk3RfwqEdxr0sFzm1zFKjBkfzBrZw6/I0sGrLGm+4tE7xcY5yf3FfL5VdnZjjJ9+lbTSVVdIhDSjeIwSPSuhq9nOtPYyea5urp7koELtuBXqDVNxrGp3sMlvcziSJWxgJjOPWjLAia1Mm/BU4pE0rxPIokAZnbg+dahL3oYwxy3NkgZ8KOgxRCWarEqmVvFzn0xXNoxW2VH+9jyrvvu7UZwccUwo20m++D2yL48pj9f9qlJrO6VIBk+vSpS0GxLDOu9wZJdoGQDHx9BXs8rrbuqyZAcFc5HzxVpcqitvJyueGPHtmuR3ZQd4N3eMpY1FdOl8C0hO23XjIiXjp5URJalrbiSM4w2Nw6Cpb/x4ZgM7oSDzjoxH7UzVgbZgMEOhznGDxV0jnvYtsZMOuHyoYnrkHiioF3z/M9KEtIo0O6OGNXA6haO04q8+FZTtPODXJnOnFxmO16F7XW7mLbz3m9c+YPNO+yJSaxu4WVVdmHBGeMDr7cU57WaEmoacl7EyR3MPhLNwGQ+RPt5UL2d0ttPhMjnDv5elb1cR4hVlp0FtqDXdswChSoX386K22Ut6LqaDxw+IkAkHjGce1eljtPsaAvZrqOB2tZQhVSTyATjy5oQb9Glwa9n4bFTffBMGi3Blz+DPlTMwxtPG4QEAcH3rIdkjLLZzyRnCk7mx71qbaZsog5BxzVckdnMhXpERljmQdBK/wDWkfa62aG8tWxwQa0/Z5gTcofKVj+tA9u0jWGycr+Mjd6cUIr5WZttUY+3z3i+EZz1xRG5FYgsvB9apt3G4987KCcZH4D5E+1DO5huCkgQybscjNdCA0Po5o+7X7RaISSI9JF/Ol8KRd0uVGfPw1ZCI1iEzRcOcjjy8qNiUG3rBtKcqQ2M9OaXWVy8MDHA8R6GmNxAv91sV8JGTgedLIBuiHBHioSV9DFtBz6grR7REqsfMVxEzd4rOd+DnDGqWVB4mxgVVLexxxFlHC+Z6UfwyTbs08c4aHx7GI5AA86UayBctGkpUJvB245agbLWJLiBU7uJJywCqTjcD5/Pp+dXzdzbKbzULgDGQu7gA+wricGpHdGSoQdqtVSVF0+2twiq2524yfYflTK10qT4ZJgVBdB0pBqLx3d6skS/fIw3qBWrsborEiyDwYOK64LRy5VvRYipY26RFvG5oazto5Z3lk5wx4pF2mmuJ51ki3ja2AoBzVvZV7w3EpulmMYUBS4IAyaeiOzdiLS00ovu/wAUOAM+fypRLxxgZquWVfiF8SjC85NeSTxDJ7xc/OlCATXC2sKlyOWNSlF1FdajevBbgP3IyefWpRbQfIxju/8ACg7N2W3ZIzxn09K6G26jkVM8nC44z8qotogsneqUYEYbDdD6elGRLLb92sTqX2+IkLhcda572dAfp5WZbN2B3GKRTg+auaaEqbUhC4O0+Z6Us0nfJ8I9uFIDS5yccZBP6mnSxMRhypB6jPSuiPDml0S2ySkFmkVVZTwqgkjHqeldacYdIszLDbMybsuQRke5JoJb94JJGlMDJk4w53Ul1Gaa9DLJKVhUZWIcL9fU/OoyxuTr8LKaig7tL2pOqPBb2u6OxiYSOCOZG9/YeXv9K0mnapFdM1sXXvowN2Dkc9Pr7VgGtDjw8D0pvpLSR2hiEe5FcPvGcj3P1rTxqtBxz2PNUvJoWmgtlJlByT6Cs7qttq01uHadnI4kiToCOoFa2CBbsz3anmYKCDztIH60hubW5tLmGcgi33OhXOQjE5yfcjqa2KND5ZqqQx7IYNrPEd4Y4OF4/StRaR7Cmd64bzFZSzv5LV+8iIBxg8da02naxDflEPglUjw5+98qOSLIRZz2eH+LvPTvG/rXut3C/H6fBKm/E27lcqy1NAYC6uwecTNQvbe4eCzs5o2KkS84OMjHIqaXyCZbV1RNTmitoyEdyB6YHIoEBHMc0nDJhW4/I02gaK6fUTDMFlXbJHx1B60ubN+7R2cbmV0JZVGceZxVkZsY/Fw7O7jkXe/hX0GakrqCImbxRnaBjjii5dDNvplse6Iui/2iAliQOeldOybd0gBLDk+9MnYj0emeN7ExhznnPFM+z4sjpUslwEZ1c4LD0pOZgLBiB1JFL7/VBa9nprcZEsz4VvbzoT2GPSjVNX/vG+ZosJBD4VC9CB50HK+9o4z0PUe3U0FF9lDFFnxNhmFE2zCS9kYkYjjbr71i9fh3p9k+oarGuGKu+1SPLnkj04ovtfdx3OrMkRHdRfZxhTk8cEk/PP5UPomprpdyLmVH+43d8Y3EjGR7ZoNSVhkvJf4j8L8z51N9KpHlorNcqWUAp4QB0FPJZsISGwQMf8/WlGmryMeRyTXmsTSPLFaQk7iN7+WB5fv+dWRzSYwt7yO6JUxkqD4JD5+uPaurHVYxPJFNC4ZWGAW8uaURXkFpjfKHfA4QZAA/CPau5LpZ1M4UqWOASOSPWj5UtMX20hpqWky3sSXEU23fJjhvKqb3sz3OkRXFpPJNciQiUbuAvrRvYWU3movBISyR+MA9B5U81hymoPHFgRhRuA6E0ri1xg9J/gh0RjY6lcSyrkPEoH0qV7dzRd8fCM/KpSvH6djKdKg6K2jVTi1hxj/pr86qv1SIqBawKDkYMS9aZLarBaG5uJlihAyZJTj/AN1nb+9iv7n7Mr8NGuELnBb3Nc8Ytss5Is0zXIIbUi4gk75JGH2ACJjOeg6U0uNYB02SS3hO14e83s/3cj0H5Vn4rHTPGPsWcdFj3ykfMf7U0W5tH0afS7sSibuW+HPclSU8l+nFdiVI5ZO2Zma4Zhbzq3hJ8WOgJ6irpJCFPABZGHHkRSm3cojoVyrDp6GiJZMIpzkZ5+oo2YdKyyKGHU9f0onTpHgvUeP7oyGHqD/wUpsZ1McYb/Lj6jj/AEplpz5vljb8QI5pXwMemnuwYoxNAzxwzY73Ycbf5h9M/pRcsEV3FdWhBKyIOTyQSMA/PK0JbusmlmKQk7E59ev+lX2c4aVCfDuQp9QQR+9KuFGrZl0dlGyQeNSVb2IrhpJIJ0MZwCRg+h9aO7RW4ttU3qMR3A3cf5qVXG/YNuDjkfOnTtE2qNv2WmMxmlLbix5+dD/2g7m0q3C/9Q/Tigex84h1CWNnAEq5AJ8x0pj21mZbC2KKrHvejdOlRkqmG9GV+Ijij07UsLuaMxyAfiq7QJVs+1sLxjfbu5iLY8ILjGPnnFBQRG60edSoV7acSKBzgU+SGebRnms2QCIrcTIf5DnK+YbinlyjLo3+NE187j7Mwp4cOBlmGCPnxWckue7tbVpraSdpGK7Q2Me9HdlZ/if71uLoF2VsjnoMZwM1fGlvqmniSa3cJAd2B60I60Zo8txDJabRC0bA57qQg5+RrKdqJIUktY4oZISu4sjeuRj961EUunlSLUSrJkEFlOBisp2k23Wpu7XAJjiBI64PpT6BG+i62ujNPH3x8efveZ+dbHs5a2Vtp4vpIfibqfO0kBkjAJxgHz4r5/Gdro3lmtL2e1h7HSphJGJUVi0YJxj1HypJ3Wi0JW6ZqdevrO60xotQRpZuWUt4e5/8axtywuUVYSCq8lPPHsKDv9UuNRneedioAwqg9PagRIwKMrEMOOv/AD1opfyFzS4Po54rW3MzY2DoAep9KWRu1wZZpw0jSHON2BR9vqENxbkXaIWUdCOGx7VRCLaWIvHmMgnKdR9KdEpb4Um1kYfZ28SEdVK5P5mu7/dB3ET8uIgT7E1yJu7nyT4VOWA8hXF5N8RMzlWHAAz6Uy0xHwN7MX9zZarI1oRudSD8qfWs95JeTSXmWLnOazOgYGsRZzgkg/lWxzCpwASwrMVCXWLaSdx3TbSD61KOmZDKxckVKCCxXdapJql2kl7HKwX7sYP2afIUQuqd2NgsRgDjK0JEece9Xq2cZ9K5/R0Ue3fama1Ahhto1cc5x09qVXPaXVrgYa52D+QYqy5slluXkPUmg9Qt0gVcDrV48Od9Bo3HLd4QxPOehrtmHw/HkaGFXf8AxMtYKL7d9u7HVSG/SmUUhiInBywXd9aU25AmBboRg/Km1pH30saYyC4U49c0ArpsbFm+GKYO8jbx8s0fcSrcW0cqtyGU7se+KBtm3XTKjDK5K/MUaI8WJhXDNszz545FImVkqYv7X90NF+IdtssLLt98kcGs4sm623rg8Vr757CXTx8WoaG4jIdf8wH7isPbSIwkSHiMglM+Q8qdCMtVmF8l0JTGnd4Y5/oK2F9I2safbqYJH2AMTnBJxWEmmbu7eXuDIykqyDqa0Oj9oZILaUXFv3MQXchLg4PuOtNSeyZZGt5bEW0cUcUL5yXGSD6UBc68llaSWUccYefKzMBzzxSu47Qz3esRzFyIRIPCT5ZofWLdv73mj3AHIZfcGlaQUxzYapJpHf3KRK0UqLu3LkE4xWlt+0NrdWwitYot8q/c8iayttbSX2nPZbgJANo3dM1RaWdxpeswLLIrlV3cenSgkNJmgte7uo2dY2VsHA3nGaw14XeZ5ZcGR2OcDFat7r4G5kj3bVDf1rKXRXvgoLHHmaIYrTBxx9KcQYh0kZ6NyfrSpgNrGmxd47WHuztZFDE8cUktlcUaYC9tvjaSLAwenrQZyDg+VObd07k567ic0pm5cn1JoxYMsUto83+DHn61ATg+LHnXHlVkIRnAc4UnmmInUkkjjvGY8+En1ryN2JOSSccZNdyzIbUQqORITmqofv8A0pkwM2um6JYx2dterKTI3iYMeh9vajZZkU+AA1X2OjS60RhLyUlYDPlTRraGOQK6AqfMVvVGaE7XAzyg/KpTOS2ss5Mm3PlmpW9IFGSiB44q8KwxgZqieR4CuxAQR554q2G8lTkwIR/NmuajoYStpLLlwuxefE3AqnVNFkksTKJNxQZzjav5n9qpvu0VzbqqQW9vFIRkSBSxHyzSO6vL2+JkuppZvdiSP9K6YvRztbKo493C9fSusdVIxkVxETvBVcnyq543B3upXP1oMKOEHmfSn2g3Mb3VqGXxEnd7486Qg/ZE+gpz2bVfjQTwI0J/P/hpXweKtm2tREveMmBK2dv9P3o8YQKN/iYclhnBpHb3aQyPu9cDHlk1a18zKFVijJwDnqKmmisosYx2kUTC3vkjlty5eIt0VvQj9ax3aqLT9P1aA6WqIjJiRUPG4H/eidU1CZe7MtwGZXz1yaqeD42xuJhagSTJkA8BD6iqRJyE/fSmOdrWR0kUjocdT/saLs7aW3uIb3UPhriMN4lI+8MYPI69fOlcLAbo3By3hcfmP64prp6juFaK7CrniN04x9aZE3020UHZOZQEFp8iMEUZ/dWgzyiXFq7/AOYsCcV85uIxDfOxkA3gEADgV3HO6/iz9Kxj6NHomipM0yiPvW6t3tU3eg6TPMbhpSsu3bnfWJjuW9RRttNKZPFINnOBk0DHHayyitJlaObvEcYP0rGElpSTWl7U3O6CBAeTk89azMfAJNYoet0x6mr5ZCcZbkACh2zkD86szkZ9qFB91ZfHJ3QIK5z70HIfHVpbxYzwDVBOWJNZI05WqJ+Gj9JsGvxdqgy0UBkA980D+GtP2A2vq11C3WW1dVHr0pibMtTLs9p41PWIbRmZVfO4r1wBQM6FZ5Iwv3GIP0NaX+zqLvO0TvjKxwMc++RWFNzBp1pZQiG1hEajrjz969e2jIwQTTF0DVQ6KMnJ+opCgku7KTdmFuPQ1KZPFG5yz4qUDUYO4tbn4ZbhYjIh4HPQ1WGypU0ImtzG3aDopUjirUb7KhONBUr6cT26ykyEcqtcy61KmnLbQ29um7KmRV6j5UTHyh+VIpuYlPuR/Sqr6k308hwHyefaiJiZYwxk6fgA4FCxY3ckD50yjTMQEce5iOuMCsYXg+HHkTTfRXMTySGNmDLtUr7UqCN3vdYBbditDDGIoljH4Rikm6RTGr2XC5fLbYup4y1Vs88rKu5Rk8Dn/XNRiq9cn5Vz3zZBVSuOQRxUkXewm3sd0gKwM7Z/y/8ABTYMIAEmkVG8lJ5/IUDBPquoR4jk7tVG1nGMVbb28Vu5wTLL+JjzVUc7Feu6VtRtRtR4QR3qhcef3sV5b25cIkkcMqqOM4Ur7Ag1pF5XZMoZXUrt9jWaWV7eV7eaNS8bFFkI5I8s/SmTFK9QijhZQd7EAgFjnFBwup4P9aI1OTEMeTjBNLonGetOKxrGwJwKLWUIytkBR1pbbkbzyele6jOUtyoOC/Ax6UGZC7ULo3Vw0hzjOFz5CqB92uGOTiu/L0pSt7IMlsjrXoIB9qjAAAr1rgtyfPmsJ+nTnhiPMVxGwVwSM1GPh9q5FYzZ1nJPlTLs9cy2mu2ktucP3gXBHUHg0spp2bi73X7Nf+5uoms97SWjWeu3kYHg37sj0PNa7+zu1jt9NnvG/iTPt6dFFc65pZuriffJxNg5xyMUb2fiuLW3eFplMflgVnoVbZpDKuOQfyqppYzwxP1zQvdu/K3bA+lerG8Rybh3PmGHFI0UTLXFux65/OpXjypgYIFSlpjWj42q4iJ+VM4m+y+gpax8NGRt9kPlTy2LHQbbt4DSWX+Dj+c02tz97nzpTL/DIxzvp1wR9Kl60ZazyLwp4HUZ60EOtE2sbyyhYxlqF0ZbDFijSWK5iHg3eMdcZp2sDvymDmh47OxjVY55XuLiRhiONsKo9/WmnwsSdCQB6GklvZSPx0CGzuS33MfM1DYTAfhHzrua5t7b8Tu3puoMz3F2/msfpS0hvTCNOkFndyRyMGV0z1zyKYNcJbAbgFlYZx6ZpPb7Yr+JZI1ZWOP0pg6W4PxE0zHPG35UULJBMUhzuYkk0v15MwNOnhYDxY/rVq3kLnEKH55rqYpLbupx06E9aIOGUmmeaJDIckCuYFyTivblV2q0Y8DjcP3quJtvOPbrVCYfArflQd4zvNlwwUfdJo60fJPHQdKugdnYosayRuPFv5xWYUIwOa7U80w1DTkt4BPG5AJxsNLR1pQnbHwiqWq1utVGiAh8vlUqede1jErYf2facJbyfUJG8NuNiD1Y+f5f1rJxKG4/ERx86+odl9MbRdGMU4DTTP3jAdFyAAP0/WikZ8L76CGTLlj18qqs5EhOxec1dNJljlBtPtQhk2NlVHFCewQ0M8sh3EcH0rpZFbPhOfeqYp+9UOwrpmABbBPpULfDopHbmHPMeTUqpJVYZIJ+lShZqPkR+7RMZ8H0oQnir4z4KuSXQ22OAxpbMfvD+ei4XwWHtQcnVv8AyzTL6iPpXR+kXcVreK1xGHhPDD/nWl9dClYU6dmrF7F8bJMuPFtCegGP/ddS3Zm8KuFHmc0hsXDRFT1U/pTazRZMxyIMetJzRZ09kLWsbZLmVvWvReE/wYzV7xQQLlIwT7igbiW6mO1cKv8AKMUaFtFVzM7TKxIBB6Vw8u5gHySpzjPFU3sL2yKzk5c8VUjtJxngdSeprUZtDS3keQ4UgAele3cii3lXdyF6+lLzJs4QkY8/Wq5XK27AnxN1/OijS4VJl4HiH3ozuHy6GuVDkYC13H4Jyzg7GGDjzBrgNImMNzTkwu3W5UkoqjNHWa3SOW459+lK47i45xIeKNiinmUNJM4B9DQYU0Xau0ZiWNG3Nkk0lxjI86bzW8TOsUb4IGH9qW3SCK7lQHO04rAuyonr86YdmrRb3tBaQuu5O83OPYc0tY1pOwcbf3tNcKcGKLgeuTWALe01lBp3aC6tLUuYo9uN5GeVBP6k0sFNO1Ehl7SXrt13gfkAP2pXWMXWKh9Qtl/zSqP1r7JKSq4Azxivk3Z6Hv8AXrKPGftQfy5r6vLJTxFkLrqYoeTj6UK0+9gOKPufGnkPpQwhDDp9aWYYqy+ELtHGDV2Ex4hn3xVMceRg5yOK9jUDqT+dc0mdSRaYgP4ZwP8AzqVw8hQ+H/WpU9jUfIj0q5f4dSpXWcy6WR/eNDS/xGr2pTfgr6VV75VKlAwRZnDtj0plG7c+I1KlI+lV9RqOY1zzXSKuBxXtSiTEWvsTeIpPATgUJD9zNSpRfAx6dH8A9TzXM/V/mP3qVKCGfDmMkjB6CvW6ipUphC2IDY3FFRSvmNd3HpUqVmBDG9tYBDFKIxvI+9WcmOZpCepY/wBalSiZFZrY/wBn4H+LOOcrUqVkZiDtL/8A0d9/9ppZUqVjI0nYRFbX8sMlYWI9q+g+9SpTx4K+nDqPSq2AyOKlSpTKQOXOHGPOuATtqVKhIvE4VmyRnjrUqVKQY//Z",
+        description: "After a tragic accident, two stage magicians in 1890s London engage in a bitter, deadly obsession to create the ultimate illusion while sacrificing everything.",
+        year: 2006,
+        genre: ["Drama", "Mystery", "Sci-Fi"],
+        duration: "2h 10m"
+    },
+    {
+        id: 112,
+        title: "Coco",
+        poster: "https://image.tmdb.org/t/p/w1280/askg3SMvhqEl4OL52YuvdtY40Yb.jpg",
+        description: "Despite his family's ban on music, young Miguel enters the Land of the Dead to find his great-great-grandfather and uncover the truth behind his family's history.",
+        year: 2017,
+        genre: ["Animation", "Adventure", "Family"],
+        duration: "1h 45m"
+    },
+    {
+        id: 113,
+        title: "Get Out",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNtRYWR5Nme6XButKf7e7f7G13RGq3xxmL84UD9jzqQA&s=10",
+        description: "A young Black man visits his white girlfriend's parents for a weekend getaway, where their overly accommodating behavior hides a sinister, terrifying secret.",
+        year: 2017,
+        genre: ["Horror", "Mystery", "Thriller"],
+        duration: "1h 44m"
+    },
+    {
+        id: 114,
+        title: "Whiplash",
+        poster: "https://image.tmdb.org/t/p/w1280/fRGxZuo7jJUWQsVg9PREb98Aclp.jpg",
+        description: "A promising young drummer enrolls at a cutthroat music conservatory where his dreams of greatness are mentored by an abusive, perfectionist instructor.",
+        year: 2014,
+        genre: ["Drama", "Music"],
+        duration: "1h 47m"
+    },
+    {
+        id: 115,
+        title: "Top Gun Maverick",
+        poster: "https://image.tmdb.org/t/p/w1280/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg",
+        description: "After thirty years of service, Pete 'Maverick' Mitchell returns to train a new generation of TOPGUN graduates for a specialized mission while confronting his past.",
+        year: 2022,
+        genre: ["Action", "Drama"],
+        duration: "2h 10m"
+    },
+    {
+        id: 116,
+        title: "Dune: Part Two",
+        poster: "https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+        description: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and fate.",
+        year: 2024,
+        genre: ["SciFi", "Adventure", "Drama"],
+        duration: "2h 46m"
+    },
+    {
+        id: 117,
+        title: "Oppenheimer",
+        poster: "https://image.tmdb.org/t/p/w1280/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+        description: "American scientist J. Robert Oppenheimer leads the Manhattan Project to develop the atomic bomb during World War II, forever altering the course of human history.",
+        year: 2023,
+        genre: ["Drama", "History", "SciFi"],
+        duration: "3h"
+    },
+    {
+        id: 118,
+        title: "Spider-Man: Across the Spider-Verse",
+        poster: "https://image.tmdb.org/t/p/w1280/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
+        description: "Miles Morales catapults across the multiverse and encounters a team of Spider-People charged with protecting its existence, clashing over how to handle a new threat.",
+        year: 2023,
+        genre: ["Animation", "Action", "Adventure"],
+        duration: "2h 20m"
+    },
+    {
+        id: 119,
+        title: "The Grand Budapest Hotel",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm50arMUnWx-yvSrvdqxBhrATBQcEV6_jTTqqy7Whikw&s=10",
+        description: "A legendary concierge at a famous European hotel and his trusted lobby boy become embroiled in the theft of a priceless Renaissance painting and a family fortune battle.",
+        year: 2014,
+        genre: ["Comedy", "Drama", "Adventure"],
+        duration: "1h 39m"
+    },
+    {
+        id: 120,
+        title: "La La Land",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qMtdVr9lMLp79_SxPYFQ2lLDVA41DkI-Wsnu0gUWbw&s=10",
+        description: "While navigating their careers in Los Angeles, a jazz pianist and an aspiring actress fall in love, only for their newfound success to threaten their fragile romance.",
+        year: 2016,
+        genre: ["Comedy", "Drama", "Music", "Romance"],
+        duration: "2h 8m"
+    },
+    {
+        id: 121,
+        title: "Blade Runner 2049",
+        poster: "https://image.tmdb.org/t/p/w1280/ilRyazdMJwN05exqhwK4tMKBYZs.jpg",
+        description: "A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who has been missing for thirty years.",
+        year: 2017,
+        genre: ["SciFi", "Drama", "Mystery"],
+        duration: "2h 44m"
+    },
+    {
+        id: 122,
+        title: "Mad Max: Fury Road",
+        poster: "https://image.tmdb.org/t/p/w1280/nlCHUWjY9XWbuEUQauCBgnY8ymF.jpg",
+        description: "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search of her homeland with the aid of a group of female prisoners and a drifter named Max.",
+        year: 2015,
+        genre: ["Action", "Adventure", "SciFi"],
+        duration: "2h"
+    },
+    {
+        id: 123,
+        title: "Gladiator",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK0Ea1XiODUh4ZU14YbHdHNhxgVcJ2x_S4xbu4Ed440Q&s=10",
+        description: "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery in the gladiatorial arena.",
+        year: 2000,
+        genre: ["Adventure", "Drama"],
+        duration: "2h 35m"
+    },
+    {
+        id: 124,
+        title: "John Wick",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf4wkuSPQZAaCJ-UJuwNOwvI9u4siO03q08eC3gUMO5Q&s=10",
+        description: "An ex-hitman comes out of retirement to track down the gangsters who killed his dog and stole his car, unleashing a relentless storm of vengeance.",
+        year: 2014,
+        genre: ["Crime", "Thriller"],
+        duration: "1h 41m"
+    },
+    {
+        id: 125,
+        title: "3 Idiots",
+        poster: "data:image/jpeg;base64,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",
+        description: "Two friends embark on a quest for a lost college buddy while reminiscing about their university days and the free-spirited friend who inspired them to think differently.",
+        year: 2009,
+        genre: ["Comedy", "Drama"],
+        duration: "2h 50m"
+    },
+    {
+        id: 126,
+        title: "Superbad",
+        poster: "https://image.tmdb.org/t/p/w780/giYuvpmpZbwkT3NtX4WdNYqGhxw.jpg",
+        description: "Two co-dependent high school seniors endure a series of outrageous misadventures in a desperate attempt to buy alcohol for a party and impress their crushes.",
+        year: 2007,
+        genre: ["Comedy"],
+        duration: "1h 53m"
+    },
+    {
+        id: 127,
+        title: "The Hangover",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6YBPDfCDf1bS1UPdt3aj4f9BaVDIzoNp56Hl8vs5mJA&s=10",
+        description: "Three buddies wake up from a bachelor party in Las Vegas with no memory of the previous night and the bachelor missing, forcing them to retrace their wild steps.",
+        year: 2009,
+        genre: ["Comedy"],
+        duration: "1h 40m"
+    },
+    {
+        id: 128,
+        title: "Home Alone",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn0_KD8VMV1gVtEs42ZyKcNou2E5Bv0MAaxp2E08Imyg&s=10",
+        description: "An eight-year-old troublemaker is accidentally left behind when his family flies to Paris for Christmas and must defend his home from two bumbling burglars.",
+        year: 1990,
+        genre: ["Comedy", "Family"],
+        duration: "1h 43m"
+    },
+    {
+        id: 129,
+        title: "The Intern",
+        poster: "data:image/jpeg;base64,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",
+        description: "A seventy-year-old widower discovers retirement isn't all it's cracked up to be and seizes an opportunity to become a senior intern at an online fashion site.",
+        year: 2015,
+        genre: ["Comedy", "Drama"],
+        duration: "2h 1m"
+    },
+    {
+        id: 130,
+        title: "The Pursuit of Happyness",
+        poster: "data:image/jpeg;base64,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",
+        description: "A struggling salesman takes custody of his son as he's poised to begin a life-changing professional career, enduring homelessness while pursuing a better future.",
+        year: 2006,
+        genre: ["Biography", "Drama"],
+        duration: "1h 57m"
+    },
+    {
+        id: 131,
+        title: "Forrest Gump",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkg2PyI1vE3W82bFCthjqqe4G4c1PffciU_066mUnAJQ&s",
+        description: "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with a pure heart who yearns to be reunited with his childhood sweetheart.",
+        year: 1994,
+        genre: ["Drama", "Romance"],
+        duration: "2h 22m"
+    },
+    {
+        id: 132,
+        title: "The Green Mile",
+        poster: "https://image.tmdb.org/t/p/w1280/l6hQWH9eDksNJNiXWYRkWqikOdu.jpg",
+        description: "A death row corrections officer in 1935 discovers that one of his charges, a gentle giant convicted of murder, possesses a miraculous and mysterious gift to heal.",
+        year: 1999,
+        genre: ["Crime", "Drama", "Fantasy"],
+        duration: "3h 9m"
+    },
+    {
+        id: 133,
+        title: "The Martian",
+        poster: "data:image/jpeg;base64,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",
+        description: "Stranded alone on Mars after a fierce storm, an astronaut must rely on his scientific ingenuity and wit to survive and signal to Earth that he is still alive.",
+        year: 2015,
+        genre: ["Adventure", "Drama", "SciFi"],
+        duration: "2h 24m"
+    },
+    {
+        id: 134,
+        title: "Se7en",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7bKNh25jpsKUqeZV8jiHwDbUXmxBBUNMI_L35YYKsGg&s=10",
+        description: "Two detectives, a rookie and a veteran, hunt a methodical serial killer who uses the seven deadly sins as his gruesome motives across a rain-soaked city.",
+        year: 1995,
+        genre: ["Crime", "Drama", "Mystery"],
+        duration: "2h 7m"
+    },
+    {
+        id: 135,
+        title: "Shutter Island",
+        poster: "data:image/jpeg;base64,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",
+        description: "In 1954, a U.S. Marshal investigates the disappearance of a murderess who escaped from a remote hospital for the criminally insane, uncovering dark secrets.",
+        year: 2010,
+        genre: ["Mystery", "Thriller"],
+        duration: "2h 18m"
+    },
+    {
+        id: 136,
+        title: "The Conjuring",
+        poster: "https://image.tmdb.org/t/p/w780/q3jHCb4dMfYF6ojikKuHd6LscxC.jpg",
+        description: "Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark, malevolent presence in their secluded Rhode Island farmhouse.",
+        year: 2013,
+        genre: ["Horror", "Mystery"],
+        duration: "1h 52m"
+    },
+    {
+        id: 137,
+        title: "Hereditary",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5Z5qwYHburIq0XtelNLFZmHTFGgrJYWN9vVVJbvhKQ&s=10",
+        description: "A grieving family is haunted by tragic and disturbing occurrences after the death of their secretive grandmother, unraveling terrifying secrets about their ancestry.",
+        year: 2018,
+        genre: ["Drama", "Horror", "Mystery"],
+        duration: "2h 7m"
+    },
+    {
+        id: 138,
+        title: "A Quiet Place",
+        poster: "https://image.tmdb.org/t/p/w1280/roYyPiQDQKmIKUEhO912693tSja.jpg",
+        description: "In a post-apocalyptic world inhabited by blind monsters with an acute sense of hearing, a family is forced to live in total silence to survive.",
+        year: 2018,
+        genre: ["Drama", "Horror", "SciFi"],
+        duration: "1h 30m"
+    },
+    {
+        id: 139,
+        title: "The Shining",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7AhPMf4aUZcdhmPTX5igMJ6A__3hevYLmH-lWmnYJZQ&s=10",
+        description: "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings.",
+        year: 1980,
+        genre: ["Horror"],
+        duration: "2h 26m"
+    },
+    {
+        id: 140,
+        title: "IT",
+        poster: "https://image.tmdb.org/t/p/w1280/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg",
+        description: "In the summer of 1989, a group of bullied kids band together to destroy a shape-shifting monster that disguises itself as a clown and preys on the children of Derry.",
+        year: 2017,
+        genre: ["Horror"],
+        duration: "2h 15m"
+    },
+    {
+        id: 141,
+        title: "Your Name",
+        poster: "https://image.tmdb.org/t/p/w1280/dIWwZW7dJJtqC6CgWzYkNVKIUm8.jpg",
+        description: "Two teenagers share a profound, magical connection upon discovering they are swapping bodies, only for things to become complicated when they decide to meet.",
+        year: 2016,
+        genre: ["Animation", "Drama", "Fantasy"],
+        duration: "1h 46m"
+    },
+    {
+        id: 142,
+        title: "Inside Out",
+        poster: "https://image.tmdb.org/t/p/w1280/j29ekbcLpBvxnGk6LjdTc2EI5SA.jpg",
+        description: "After young Riley is uprooted from her Midwest life and moved to San Francisco, her emotions—Joy, Fear, Anger, Disgust, and Sadness—conflict on how to navigate a new city.",
+        year: 2015,
+        genre: ["Animation", "Adventure"],
+        duration: "1h 35m"
+    },
+    {
+        id: 143,
+        title: "Toy Story",
+        poster: "https://image.tmdb.org/t/p/w1280/lxD5ak7BOoinRNehOCA85CQ8ubr.jpg",
+        description: "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
+        year: 1995,
+        genre: ["Animation", "Adventure"],
+        duration: "1h 21m"
+    },
+    {
+        id: 144,
+        title: "The Notebook",
+        poster: "https://image.tmdb.org/t/p/w1280/qom1SZSENdmHFNZBXbtJAU0WTlC.jpg",
+        description: "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom before they are separated by their social differences.",
+        year: 2004,
+        genre: ["Drama", "Romance"],
+        duration: "2h 3m"
+    },
     {
         id: 145,
         title: "Pride & Prejudice",
+        poster: "data:image/jpeg;base64,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",
+        description: "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy, forcing both to overcome their initial pride and misjudgments in 18th-century England.",
         year: 2005,
-        rating: 7.8,
         genre: ["Drama", "Romance"],
-        duration: "2h 9m",
-        certificate: "PG",
-        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEtgrr3_amdGcPJ9tQc8pXnCCkqN7mN8IHgqhGaTvNZA&s=10",
-        backdrop: "",
-        description: "Spirited Elizabeth Bennet navigates family pressure, social expectations and her complicated feelings for the proud Mr. Darcy in Regency England.",
-        director: "Joe Wright",
-        writers: ["Deborah Moggach", "Jane Austen"],
-        cast: ["Keira Knightley", "Matthew Macfadyen", "Brenda Blethyn"],
-        trailer: "https://www.youtube.com/embed/KuRYRhP6kag?si=HOAFLe8tz3o5xmw2"
+        duration: "2h 9m"
     },
     {
         id: 146,
         title: "About Time",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVUK3GxmmCSJvhRnI9Fwod1__cDtoASVQj4QEOqCVIQA&s=10",
+        description: "At age 21, Tim discovers he can travel in time and change what happens in his own life, using his gift to win the heart of the woman he loves.",
         year: 2013,
-        rating: 7.8,
         genre: ["Fantasy", "Romance"],
-        duration: "2h 3m",
-        certificate: "R",
-        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0o1rekKrIlGFVzt94yWaUhAdYrqgfgNV1WXcKaRd0VQ&s=10",
-        backdrop: "",
-        description: "A young man discovers he can travel back in time and uses the gift to find love, only to learn that it cannot fix everything.",
-        director: "Richard Curtis",
-        writers: ["Richard Curtis"],
-        cast: ["Domhnall Gleeson", "Rachel McAdams", "Bill Nighy"],
-        trailer: "https://www.youtube.com/embed/T7A810duHvw"
+        duration: "2h 3m"
     },
     {
         id: 147,
         title: "Before Sunrise",
-        year: 1995,
-        rating: 8.1,
-        genre: ["Romance"],
-        duration: "1h 41m",
-        certificate: "R",
         poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyuthbtgRRIHEO8yg2QpsmtXviEnFzGenci_8Sxt1ijA&s=10",
-        backdrop: "",
-        description: "An American traveler and a French student meet on a train in Europe and spend one unforgettable night wandering Vienna together.",
-        director: "Richard Linklater",
-        writers: ["Richard Linklater", "Kim Krizan"],
-        cast: ["Ethan Hawke", "Julie Delpy", "Andrea Eckert"],
-        trailer: "https://www.youtube.com/embed/6MUcuqbGTxc?si=wMzNP2EmXAGxJQTq"
+        description: "A young man and woman meet on a train in Europe and wind up spending one unforgettable evening together in Vienna before their paths must part.",
+        year: 1995,
+        genre: ["Romance"],
+        duration: "1h 41m"
     },
     {
         id: 148,
         title: "Titanic",
-        year: 1997,
-        rating: 7.9,
-        genre: ["Romance"],
-        duration: "3h 14m",
-        certificate: "PG-13",
         poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRElgYdtpvFPL4yrw_OohhgHbO0rhjGBGN_KDFtZWblAA&s=10",
-        backdrop: "",
-        description: "A young aristocrat and a penniless artist fall in love aboard the ill-fated R.M.S. Titanic during its doomed maiden voyage.",
-        director: "James Cameron",
-        writers: ["James Cameron"],
-        cast: ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
-        trailer: "https://www.youtube.com/embed/kVrqfYjkTdQ"
+        description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic on its maiden voyage.",
+        year: 1997,
+        genre: ["Romance"],
+        duration: "3h 14m"
     },
     {
         id: 149,
         title: "The Truman Show",
+        poster: "https://m.media-amazon.com/images/S/pv-target-images/de893f1434c422dc6c84e30c5392ce80c09762caff6599ff87fb52e6b3618dde.jpg",
+        description: "An insurance salesman discovers his whole life is actually a reality TV show broadcast 24/7 to the world, pushing him to escape his manufactured town.",
         year: 1998,
-        rating: 8.2,
         genre: ["Drama", "Animation"],
-        duration: 103,
-        certificate: "PG",
-        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShoMopF5VIAtEf3sUYLsG-cCBFYnc-bmQEQZl52TKnlA&s=10",
-        backdrop: "",
-        description: "An ordinary man gradually discovers that his entire life is actually a television show, with everyone around him playing a role.",
-        director: "Peter Weir",
-        writers: ["Andrew Niccol"],
-        cast: [
-            "Jim Carrey",
-            "Laura Linney",
-            "Ed Harris",
-            "Noah Emmerich"
-        ],
-        trailer: "https://www.youtube.com/embed/dlnmQbPGuls?si=Tu4fT64IW2cj7DtY"
+        duration: "1h 43m"
     }
-]
+];
+
+
+
+
 
 module.exports = { 
     movies,
-    watchlist
+    watchlist,
+    remainingWatchlist
 };
+
+

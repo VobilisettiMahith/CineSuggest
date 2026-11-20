@@ -14,6 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRSxxCW2NXs0YKgunIPc0lDAGqiwei2JkDZf-xynDD5JO3JznQaNq0mDQ&s=10">
 
 </head>
 
@@ -42,7 +43,7 @@
                     <option value="Comedy">Comedy</option>
                     <option value="Horror">Horror</option>
                     <option value="Crime">Crime</option>
-                    <option value="Sci-Fi">Sci-Fi</option>x
+                    <option value="Sci-Fi">Sci-Fi</option>
                 </select>
 
 
@@ -120,13 +121,28 @@
                         <p class="Imagetitle montserrat-title"><%= movies[i].title %></p>
                         <p class="Rating"><i class="fa-solid fa-star styling"></i> <%= movies[i].rating %></p>
                     </div>
-                    <p class="Year"><%= movies[i].year %></p>
+                    <div>
+                        <p class="Year"><%= movies[i].year %></p>
+                        <i class="fa-solid fa-plus AddToWatchlist"></i>
+                    </div>
                 </div>
+               
             <% } %>
         </div>
     </section>
     
+    <!-- For extra Blur effect and Popup For Confirming Watchlist Addition  -->
+    <div id="Overlay">
+        <div id="AlertBox">
+            <p class="inter-homo">Do you Want To Add Interstellar To the Watchlist?</p>
+            <div>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+    </div>
     <script src="/script.js"></script>
+
 </body>
 
 </html>

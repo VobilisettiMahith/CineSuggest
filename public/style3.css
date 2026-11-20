@@ -208,6 +208,8 @@ ul{
     flex-wrap : wrap;
 }
 
+
+
 .Moviecontent{
     display: flex;
     flex-direction: column;
@@ -348,4 +350,65 @@ ul{
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+
+/* It uses the position property to control the placement of the overlay div
+It creates an extra layer on top of the current body inside which the popup box will be there
+The extra layer(overlay) is initally displayed as "none", only when the button is triggered , its display is set as flex */ 
+
+/* Styling for the popup confirmation to add into watchlist*/
+#Overlay {
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(14px);
+}
+
+#AlertBox {
+    display: flex;
+    flex-direction: column;
+    /* max-width: fit-content; */
+    color: white;
+    gap: 15px;
+    border-radius: 10px;
+    justify-self: center;
+
+    background: rgb(53, 46, 46);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+#AlertBox p {
+    margin: 21px 21px 0px 21px;
+}
+
+#AlertBox div {
+    margin-left: 65%;
+    margin-bottom: 21px;
+    border-radius: 20px;
+}
+
+#AlertBox div button {
+    margin-right: 10px;
+    font-size: 15px;
+    padding: 5px 7px;
+    border: none;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+#AlertBox div button:hover {
+    background-color: rgb(90, 181, 211);
+}
+
+.inter-homo {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
