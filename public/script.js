@@ -5,7 +5,6 @@ for (let i = 0; i < movies.length; i++) {
     let movie = movies[i];
     movie.addEventListener("click", () => {
         let title = movie.querySelector(".Imagetitle");
-        console.log(title.innerText);
         window.location.href = `http://localhost:8080/movies/${title.innerText}`;
     })
 }
@@ -30,21 +29,29 @@ for (let i = 0; i < watchlistBtn.length; i++) {
     })
 }
 
+// Functionality Of PopUp buttons (Yes/No)
 let WatchlistPopupBtns=document.querySelectorAll("#AlertBox div button");
-console.log(WatchlistPopupBtns);
+// Functionality of Yes
 WatchlistPopupBtns[0].addEventListener("click",(event)=>{
     event.stopPropagation();
+    let ConfirmMsg=document.querySelector("#OverlayMsg");
+    ConfirmMsg.style.display="flex";
+
+    setTimeout(()=>{
+        ConfirmMsg.style.display="none";
+    },3000)
     window.location.href = `http://localhost:8080/landingHomePage/add-to-Watchlist/${ReqMovieTitle}`;
     let Popup=document.querySelector("#Overlay");
     Popup.style.display="none";
 
 })
 
+// Functionality of No
 WatchlistPopupBtns[1].addEventListener("click",(event)=>{
     event.stopPropagation();
     let Popup=document.querySelector("#Overlay");
     Popup.style.display="none";
-    window.location.href = `http://localhost:8080/landingHomePage`;
+    
 })
 
 
@@ -55,7 +62,6 @@ let searchInput = document.querySelector("#SearchBox");
 searchInput.addEventListener("keydown", (event) => {
     if (event.code == "Enter") {
         let moviename = searchInput.children[1].value;
-        console.log(moviename);
         window.location.href = `http://localhost:8080/search/${moviename}`;
     }
 })
@@ -68,7 +74,6 @@ for (let genre of Genres) {
     else {
         
         genre.addEventListener("click", () => {
-            console.log(genre.innerText);
             window.location.href = `http://localhost:8080/landingHomePage/genres/${genre.innerText}`;
         })
     }
@@ -84,3 +89,4 @@ NavButtons[0].addEventListener("click",()=>{
 NavButtons[2].addEventListener("click",()=>{
     window.location.href = `http://localhost:8080/landingHomePage/watchlist`;
 })
+

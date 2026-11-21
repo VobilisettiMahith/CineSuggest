@@ -14,7 +14,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRSxxCW2NXs0YKgunIPc0lDAGqiwei2JkDZf-xynDD5JO3JznQaNq0mDQ&s=10">
+    <link rel="icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRSxxCW2NXs0YKgunIPc0lDAGqiwei2JkDZf-xynDD5JO3JznQaNq0mDQ&s=10">
 
 </head>
 
@@ -48,7 +49,7 @@
 
 
 
-                <!-- <img src="c:\Users\mahit\Downloads\sun-regular-full.svg" alt="Settings Icon"> -->
+
             </div>
             <div id="NavRemaining">
                 <div id="SearchBox">
@@ -115,22 +116,27 @@
         <div id="Popularsection">
             <% for(let i=0; i<movies.length; i++) { %>
                 <div class="Moviecontent">
-                    <img src=" <%= movies[i].poster %>"
-                        alt="MovieImg" class="MovieImg">
+                    <img src=" <%= movies[i].poster %>" alt="MovieImg" class="MovieImg">
                     <div>
-                        <p class="Imagetitle montserrat-title"><%= movies[i].title %></p>
-                        <p class="Rating"><i class="fa-solid fa-star styling"></i> <%= movies[i].rating %></p>
+                        <p class="Imagetitle montserrat-title">
+                            <%= movies[i].title %>
+                        </p>
+                        <p class="Rating"><i class="fa-solid fa-star styling"></i>
+                            <%= movies[i].rating %>
+                        </p>
                     </div>
                     <div>
-                        <p class="Year"><%= movies[i].year %></p>
+                        <p class="Year">
+                            <%= movies[i].year %>
+                        </p>
                         <i class="fa-solid fa-plus AddToWatchlist"></i>
                     </div>
                 </div>
-               
-            <% } %>
+
+                <% } %>
         </div>
     </section>
-    
+
     <!-- For extra Blur effect and Popup For Confirming Watchlist Addition  -->
     <div id="Overlay">
         <div id="AlertBox">
@@ -139,6 +145,13 @@
                 <button>Yes</button>
                 <button>No</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Message to notify that Movie has Been Added to Watchlist  -->
+    <div id="OverlayMsg">
+        <div>
+            <p>Added to WatchList !</p>
         </div>
     </div>
     <script src="/script.js"></script>

@@ -3,6 +3,7 @@ const app = express();
 const port = 8080;
 const path = require("path");
 let { movies, watchlist, remainingWatchlist } = require("./Data");
+const { watch } = require("fs");
 
 
 
@@ -59,7 +60,6 @@ app.get("/landingHomePage/genres/:genre", (req, res) => {
     movies = movies_copy;
 })
 
-// Display the watchlist Page
 app.get("/landingHomePage/watchlist", (req, res) => {
     res.render("watchlist.ejs", { watchlist });
 })
@@ -79,10 +79,36 @@ app.get("/landingHomePage/add-to-Watchlist/:title", (req, res) => {
         });
         watchlist.push(reqMov);
     }
-
-    res.render("watchlist.ejs", { watchlist });
+    res.redirect("/landingHomePage/watchlist");
 
 })
+
+// Removing Required Movie from WatchList
+// Request comes from Watchlist.ejs
+app.get("/landingHomePage/remove-from-Watchlist/:title", (req, res) => {
+    let name = req.params.title;
+
+
+    for (let i = 0; i < watchlist.length; i++) {
+        if (watchlist[i].title.toLowerCase() == name.toLowerCase()) {
+            let reqIndex = i;
+            watchlist.splice(reqIndex, 1);
+        }
+    }
+
+
+    if (!watchlist.length) {
+        res.redirect("/landingHomePage");
+    }
+    else {
+        res.redirect("/landingHomePage/watchlist");
+    }
+
+
+})
+
+
+
 
 app.listen(port, () => {
     console.log(`Listening to ${port}`);

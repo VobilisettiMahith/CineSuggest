@@ -125,6 +125,18 @@ ul{
     width: 450px;
 }
 
+#NavMenu  p{
+    padding: 2px 6px;
+    transition: all 0.1 ease;
+}
+
+#NavMenu p:hover{
+    background-color: #606366;
+    border-radius: 10px;
+    cursor: pointer
+    
+}
+
 #NavRemaining{
     display: flex;
     justify-content: space-around;
@@ -191,9 +203,9 @@ ul{
 }
 
 #CategorySection div:hover{
-    background-color: red;
+    background-color: rgb(190, 0, 0);
     transform: translateY(-3px);
-    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); */
+    cursor:pointer;
 }
 
 #Popularsection{
@@ -411,4 +423,27 @@ The extra layer(overlay) is initally displayed as "none", only when the button i
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
+}
+
+/*Styling for WatchList addition Confirmation Message*/
+#OverlayMsg{
+    position:fixed;
+    z-index:100;
+    inset:0;
+    display:none;
+    justify-content: center;
+    top:880px;
+}
+
+#OverlayMsg div{
+    background-color: rgb(255, 255, 255);
+    max-width: fit-content;
+    padding:5px 10px;
+    border-radius: 10px;
+    max-height: fit-content;
+}
+
+#OverlayMsg div p{
+    margin:0;
+    color:black;
 }

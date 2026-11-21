@@ -792,7 +792,7 @@ let movies = [
     }
 ]
 
-// Custom watchlist
+// Custom watchlist Premade
 let watchlist=[
     {
         id: 101,
@@ -829,7 +829,12 @@ let watchlist=[
         year: 2014,
         genre: ["Sci-Fi", "Adventure", "Drama"],
         duration: "2h 49m"
-    },
+    }
+    
+    
+];
+
+let remainingWatchlist=[
     {
         id: 105,
         title: "FightClub",
@@ -883,11 +888,7 @@ let watchlist=[
         year: 2019,
         genre: ["Crime", "Drama", "Thriller"],
         duration: "2h 2m"
-    }
-    
-];
-
-let remainingWatchlist=[
+    },
     {
         id: 111,
         title: "The Prestige",
